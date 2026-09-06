@@ -133,7 +133,7 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 px-6 lg:px-16 bg-dark-bg">
+    <section id="projects" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-16 bg-dark-bg">
       <motion.div
         ref={ref}
         variants={containerVariants}

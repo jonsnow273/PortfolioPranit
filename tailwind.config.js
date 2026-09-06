@@ -8,21 +8,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Cream & beige theme - medium brightness
-        'dark-bg': '#f5f1ed',
-        'dark-card': '#fffbf7',
-        'dark-border': '#e8dfd6',
-        'accent': '#8b7355',
+        // Light theme - Cream & beige
+        'light-bg': '#f5f1ed',
+        'light-card': '#fffbf7',
+        'light-border': '#e8dfd6',
+        // Dark theme - Deep navy/charcoal
+        'dark-bg': '#0f1419',
+        'dark-card': '#1a1f2e',
+        'dark-border': '#2d3748',
+        // Dynamic colors using CSS variables
+        'accent': 'var(--accent)',
+        'bg-primary': 'var(--bg-primary)',
+        'bg-secondary': 'var(--bg-secondary)',
+        'bg-tertiary': 'var(--bg-tertiary)',
+        'text-primary': 'var(--text-primary)',
+        'text-secondary': 'var(--text-secondary)',
+        'text-muted': 'var(--text-muted)',
         'accent-secondary': '#d4a574',
         'accent-tertiary': '#6b5344',
         'accent-hover': '#a0845a',
-        'text-primary': '#2c2622',
-        'text-secondary': '#5a5551',
-        'text-muted': '#8a7f7a',
         'cream-light': '#fefbf8',
         'cream-dark': '#ece6e0',
         'tan': '#c9b8a8',
         'taupe': '#9b8b7e',
+        // Dark theme text
+        'dark-text-primary': '#f5f1ed',
+        'dark-text-secondary': '#b8b3ac',
+        'dark-text-muted': '#8a827a',
       },
       fontFamily: {
         'heading': ['Inter', 'Space Grotesk', 'sans-serif'],

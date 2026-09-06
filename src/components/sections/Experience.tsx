@@ -43,7 +43,7 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="py-20 px-8 lg:px-16 bg-dark-bg">
+    <section id="experience" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-16 bg-dark-bg">
       <motion.div
         ref={ref}
         variants={containerVariants}

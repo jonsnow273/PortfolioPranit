@@ -98,7 +98,7 @@ export default function Skills() {
   }
 
   return (
-    <section id="skills" className="py-20 px-8 lg:px-16 gradient-mesh">
+    <section id="skills" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-16 gradient-mesh">
       <motion.div
         ref={ref}
         variants={containerVariants}

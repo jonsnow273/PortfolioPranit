@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useEffect, useState } from 'react'
+import WordReveal from '@/components/WordReveal'
 
 const stats = [
   { value: 4, label: 'PROJECTS SHIPPED', suffix: '+' },
@@ -67,7 +68,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="py-20 px-6 lg:px-16 bg-dark-bg">
+    <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 lg:px-16 bg-dark-bg">
       <motion.div
         ref={ref}
         variants={containerVariants}
@@ -116,18 +117,15 @@ export default function About() {
               </h2>
             </div>
             
-            <div className="space-y-4 text-text-secondary leading-relaxed">
-              <p>
-                I'm an 18-year-old AI/ML diploma student at Rajarambapu Institute of Technology (RIT), 
-                Pune, currently in my 3rd year. While many students stop at completing coursework, 
-                I'm drawn to building full-stack applications that combine machine learning with 
-                real working software.
-              </p>
-              <p>
-                My projects range from RAG systems and LLM tools to prediction models and code reviewers. 
-                I focus on end-to-end implementations — not isolated notebooks, but complete products 
-                with proper backends, user interfaces, and deployment pipelines that solve actual problems.
-              </p>
+            <div className="space-y-6 text-text-secondary leading-relaxed">
+              <WordReveal 
+                text="I'm an 18-year-old AI/ML diploma student at Rajarambapu Institute of Technology (RIT), Pune, currently in my 3rd year. While many students stop at completing coursework, I'm drawn to building full-stack applications that combine machine learning with real working software."
+                className="text-lg sm:text-xl font-light"
+              />
+              <WordReveal 
+                text="My projects range from RAG systems and LLM tools to prediction models and code reviewers. I focus on end-to-end implementations — not isolated notebooks, but complete products with proper backends, user interfaces, and deployment pipelines that solve actual problems."
+                className="text-lg sm:text-xl font-light"
+              />
             </div>
           </motion.div>
 

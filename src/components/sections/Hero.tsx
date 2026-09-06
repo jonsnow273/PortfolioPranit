@@ -15,10 +15,9 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0])
 
   return (
-    <section 
-      id="home" 
+    <section id="home" 
       ref={containerRef}
-      className="min-h-screen flex items-center justify-between px-6 lg:px-16 relative overflow-hidden bg-dark-bg"
+      className="min-h-screen flex items-center justify-between px-4 sm:px-6 lg:px-16 relative overflow-hidden bg-dark-bg"
     >
       {/* Interactive string mesh background */}
       <div className="absolute inset-0 w-full h-3/5">
@@ -85,7 +84,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-12 sm:mt-16"
         >
           <motion.div 
-            className="w-16 h-px bg-accent"
+            className="w-16 h-px scroll-line"
             initial={{ width: 0 }}
             animate={{ width: 64 }}
             transition={{ duration: 1, delay: 1.6 }}

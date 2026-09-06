@@ -10,7 +10,7 @@ import Contact from '@/components/sections/Contact'
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-dark-bg relative">
+    <main className="min-h-screen bg-dark-bg relative overflow-x-hidden">
       <CustomCursor />
       <Navigation />
       <Hero />
