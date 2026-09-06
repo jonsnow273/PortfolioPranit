@@ -6,88 +6,93 @@
 
 html {
   scroll-behavior: smooth;
-  cursor: none; /* Hide default cursor */
+  cursor: none !important;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #0d0e12;
-  color: #e8e8ea;
+  background: linear-gradient(135deg, #050608 0%, #0a0e16 50%, #050608 100%);
+  background-attachment: fixed;
+  color: #ffffff;
   overflow-x: hidden;
-  cursor: none; /* Hide default cursor */
-}
-
-/* Custom cursor styles - only hide for specific elements */
-body {
   cursor: none !important;
+  position: relative;
 }
 
-/* Show default cursor for input fields and textareas */
+/* Animated background grid */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(0deg, transparent 24%, rgba(0, 212, 255, 0.05) 25%, rgba(0, 212, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 212, 255, 0.05) 75%, rgba(0, 212, 255, 0.05) 76%, transparent 77%, transparent),
+    linear-gradient(90deg, transparent 24%, rgba(0, 212, 255, 0.05) 25%, rgba(0, 212, 255, 0.05) 26%, transparent 27%, transparent 74%, rgba(0, 212, 255, 0.05) 75%, rgba(0, 212, 255, 0.05) 76%, transparent 77%, transparent);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Custom cursor styles */
 input, textarea, [contenteditable="true"] {
   cursor: text !important;
 }
 
-/* Show pointer for interactive elements */
 a, button {
   cursor: none !important;
 }
 
-/* Hide custom cursor when over input fields */
 .cursor-hidden {
   display: none !important;
 }
 
-/* Smooth page transitions */
-.page-transition {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Dot pattern background */
-.dot-pattern {
-  background-image: radial-gradient(circle, rgba(107, 140, 184, 0.05) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Scrollbar styling */
+/* Scrollbar styling with gradient */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0d0e12;
+  background: #050608;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #2a2d3a;
-  border-radius: 4px;
+  background: linear-gradient(180deg, #00d4ff 0%, #ff006e 100%);
+  border-radius: 5px;
+  border: 2px solid #050608;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3a3d4a;
+  background: linear-gradient(180deg, #00f0ff 0%, #ff1a7a 100%);
+  box-shadow: 0 0 15px rgba(0, 212, 255, 0.5);
 }
 
 /* Selection styling */
 ::selection {
-  background: rgba(107, 140, 184, 0.3);
+  background: rgba(0, 212, 255, 0.4);
+  color: #ffffff;
 }
 
-/* Smooth animations with better easing */
+/* Smooth transitions */
 * {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
+  transition-duration: 200ms;
 }
 
-/* Advanced hover animations */
+/* Hover effects */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hover-lift:hover {
-  transform: translateY(-8px);
+  transform: translateY(-12px);
+  box-shadow: 0 20px 60px rgba(0, 212, 255, 0.25);
 }
 
-/* Magnetic effect for interactive elements */
+/* Magnetic effect */
 .magnetic {
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -98,96 +103,164 @@ a, button {
 .stagger-3 { animation-delay: 0.3s; }
 .stagger-4 { animation-delay: 0.4s; }
 
-/* Custom scrollbar for modal */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+/* Dot pattern */
+.dot-pattern {
+  background-image: 
+    radial-gradient(circle, rgba(0, 212, 255, 0.1) 1px, transparent 1px),
+    radial-gradient(circle, rgba(255, 0, 110, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px, 40px 40px;
+  background-position: 0 0, 10px 10px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(42, 45, 58, 0.3);
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(107, 140, 184, 0.5);
-  border-radius: 3px;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(107, 140, 184, 0.7);
-}
-
-/* Advanced text effects */
-.text-shimmer {
-  background: linear-gradient(
-    90deg,
-    rgba(232, 232, 234, 0.5) 0%,
-    rgba(107, 140, 184, 1) 50%,
-    rgba(232, 232, 234, 0.5) 100%
-  );
-  background-size: 200% auto;
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  animation: shimmer 3s ease-in-out infinite;
-}
-
-/* Enhanced glow effects */
-.glow-intense {
-  filter: drop-shadow(0 0 20px rgba(107, 140, 184, 0.6));
-}
-
-/* Particle effects */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0.3;
-  animation: float 8s ease-in-out infinite;
-}
-
-/* Better gradient backgrounds */
-.gradient-mesh {
-  background: 
-    radial-gradient(circle at 20% 80%, rgba(107, 140, 184, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(107, 140, 184, 0.05) 0%, transparent 50%),
-    radial-gradient(circle at 40% 40%, rgba(107, 140, 184, 0.03) 0%, transparent 50%);
-}
-
-/* Blur backdrop for modal */
+/* Blur backdrop */
 .backdrop-blur-custom {
-  backdrop-filter: blur(12px) saturate(150%);
-  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  background-color: rgba(5, 6, 8, 0.8);
 }
 
-/* Custom marquee pause on hover */
+/* Marquee container */
 .marquee-container:hover .marquee-content {
   animation-play-state: paused;
 }
 
-/* Magnetic text effect */
-.magnetic-text {
-  display: inline-block;
-}
-
-.magnetic-letter {
-  display: inline-block;
-  transition: transform 0.2s ease-out;
-}
-
 /* Glow effects */
 .glow-accent {
-  box-shadow: 0 0 20px rgba(107, 140, 184, 0.3);
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5), 0 0 40px rgba(0, 212, 255, 0.3);
 }
 
-/* Nav pill styling */
+.glow-intense {
+  filter: drop-shadow(0 0 25px rgba(0, 212, 255, 0.6));
+}
+
+.glow-sm {
+  box-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.glow-md {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.glow-lg {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.6);
+}
+
+/* Neon effects */
+.neon-text {
+  text-shadow: 
+    0 0 10px rgba(0, 212, 255, 0.5),
+    0 0 20px rgba(0, 212, 255, 0.3),
+    0 0 30px rgba(255, 0, 110, 0.2);
+}
+
+.neon-border {
+  border-color: rgba(0, 212, 255, 0.5);
+  box-shadow: inset 0 0 15px rgba(0, 212, 255, 0.1), 0 0 20px rgba(0, 212, 255, 0.25);
+}
+
+/* Nav pill */
 .nav-pill {
-  background: rgba(21, 22, 25, 0.8);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(42, 45, 58, 0.5);
+  background: rgba(15, 17, 22, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 212, 255, 0.25);
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.1);
 }
 
 .nav-pill-active {
-  background: rgba(107, 140, 184, 0.2);
-  color: #6b8cb8;
+  background: rgba(0, 212, 255, 0.15);
+  color: #00d4ff;
+  border-color: rgba(0, 212, 255, 0.6);
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.4);
+}
+
+/* Text shimmer */
+.text-shimmer {
+  background: linear-gradient(90deg, #ffffff 0%, #00d4ff 50%, #ffffff 100%);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* Gradient mesh */
+.gradient-mesh {
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 0, 110, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.05) 0%, transparent 50%);
+}
+
+/* Particle */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(0, 212, 255, 0.6), transparent);
+}
+
+/* Custom scrollbar for modal */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 212, 255, 0.05);
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.6), rgba(255, 0, 110, 0.4));
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(0, 212, 255, 0.8), rgba(255, 0, 110, 0.6));
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  * {
+    transition-duration: 150ms;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 212, 255, 0.2);
+  }
+
+  body::before {
+    background-size: 40px 40px;
+  }
+
+  .dot-pattern {
+    background-size: 15px 15px, 30px 30px;
+  }
+}
+
+@media (max-width: 640px) {
+  body::before {
+    background-size: 30px 30px;
+  }
+
+  .dot-pattern {
+    background-size: 12px 12px, 25px 25px;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.15);
+  }
+
+  .neon-text {
+    text-shadow: 
+      0 0 8px rgba(0, 212, 255, 0.4),
+      0 0 16px rgba(0, 212, 255, 0.2);
+  }
+}
+
+/* Ensure no z-index conflicts */
+body > * {
+  position: relative;
+  z-index: 1;
 }

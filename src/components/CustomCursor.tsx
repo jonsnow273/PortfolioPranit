@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState, useCallback } from 'react'
+import { useEffect, useState, useCallback, useRef } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
@@ -10,11 +10,19 @@ export default function CustomCursor() {
   const cursorX = useMotionValue(-100)
   const cursorY = useMotionValue(-100)
 
-  const springConfig = { damping: 30, stiffness: 400, mass: 0.5 }
+  // Faster spring config for instant responsiveness
+  const springConfig = { damping: 15, stiffness: 600, mass: 0.3 }
   const cursorXSpring = useSpring(cursorX, springConfig)
   const cursorYSpring = useSpring(cursorY, springConfig)
+  
+  const lastUpdateRef = useRef(0)
 
   const moveCursor = useCallback((e: MouseEvent) => {
+    // Throttle to avoid excessive updates
+    const now = Date.now()
+    if (now - lastUpdateRef.current < 8) return // ~120fps
+    lastUpdateRef.current = now
+
     const target = e.target as HTMLElement
     
     // Hide cursor on input fields and textareas

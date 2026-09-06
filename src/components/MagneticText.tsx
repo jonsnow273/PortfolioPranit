@@ -31,7 +31,8 @@ function MagneticLetter({ letter, index, strength }: { letter: string; index: nu
   const x = useMotionValue(0)
   const y = useMotionValue(0)
   
-  const springConfig = { damping: 25, stiffness: 200, mass: 0.8 }
+  // Faster spring for responsive feel
+  const springConfig = { damping: 12, stiffness: 300, mass: 0.2 }
   const xSpring = useSpring(x, springConfig)
   const ySpring = useSpring(y, springConfig)
 
@@ -48,9 +49,10 @@ function MagneticLetter({ letter, index, strength }: { letter: string; index: nu
         Math.pow(e.clientX - centerX, 2) + Math.pow(e.clientY - centerY, 2)
       )
       
-      if (distance < 100) { // Magnetic field radius
+      const magneticRadius = 80 // Reduced from 100
+      if (distance < magneticRadius) {
         const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX)
-        const force = Math.max(0, (100 - distance) / 100) // Force based on distance
+        const force = Math.max(0, (magneticRadius - distance) / magneticRadius)
         
         x.set(Math.cos(angle) * force * strength)
         y.set(Math.sin(angle) * force * strength)
@@ -77,15 +79,15 @@ function MagneticLetter({ letter, index, strength }: { letter: string; index: nu
   return (
     <motion.span
       ref={letterRef}
-      className="inline-block transition-colors duration-300 hover:text-accent"
+      className="inline-block transition-all duration-200 hover:text-accent-hover"
       style={{
         x: xSpring,
         y: ySpring,
       }}
       whileHover={{ 
-        scale: 1.1,
-        textShadow: "0 0 20px rgba(107, 140, 184, 0.5)",
-        transition: { duration: 0.2 }
+        scale: 1.15,
+        textShadow: "0 0 25px rgba(0, 212, 255, 0.8), 0 0 40px rgba(255, 0, 110, 0.4)",
+        transition: { duration: 0.15 }
       }}
     >
       {letter === ' ' ? '\u00A0' : letter}
