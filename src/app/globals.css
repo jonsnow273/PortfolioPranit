@@ -173,12 +173,42 @@ a, button {
     transform: translateY(-8px);
     box-shadow: 0 15px 30px rgba(139, 115, 85, 0.12);
   }
+
+  /* Mobile-friendly text sizing */
+  h1, h2, h3 {
+    line-height: 1.2;
+  }
+
+  /* Better touch targets on mobile */
+  button, a, input {
+    min-height: 44px;
+  }
 }
 
 @media (max-width: 640px) {
   .hover-lift:hover {
     transform: translateY(-6px);
     box-shadow: 0 10px 20px rgba(139, 115, 85, 0.1);
+  }
+
+  /* Stack flex items on very small screens */
+  .flex-row {
+    flex-direction: column;
+  }
+
+  /* Better padding for mobile */
+  section {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Responsive font sizing */
+  body {
+    font-size: 14px;
+  }
+
+  .font-heading {
+    letter-spacing: -0.5px;
   }
 }
 

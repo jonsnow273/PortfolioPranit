@@ -98,7 +98,7 @@ const projects = [
 
 export default function Projects() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { margin: "-100px" })
   const [selectedProject, setSelectedProject] = useState<any>(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -146,7 +146,7 @@ export default function Projects() {
           <p className="font-mono text-xs uppercase tracking-wider text-text-secondary mb-4">
             SELECTED WORK
           </p>
-          <h2 className="font-heading font-bold text-4xl lg:text-5xl text-text-primary mb-4">
+          <h2 className="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl text-text-primary mb-4">
             Featured Projects
           </h2>
           <p className="text-text-secondary text-lg">

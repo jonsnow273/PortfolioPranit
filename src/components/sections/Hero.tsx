@@ -28,7 +28,7 @@ export default function Hero() {
       {/* Main content */}
       <motion.div 
         style={{ y, opacity }}
-        className="flex-1 max-w-5xl relative z-10"
+        className="flex-1 max-w-5xl relative z-10 px-4 md:px-0"
       >
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -40,7 +40,7 @@ export default function Hero() {
           }}
         >
           <motion.p 
-            className="font-mono text-sm uppercase tracking-[0.2em] text-text-secondary mb-8"
+            className="font-mono text-xs sm:text-sm uppercase tracking-[0.2em] text-text-secondary mb-6 sm:mb-8"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -49,7 +49,7 @@ export default function Hero() {
           </motion.p>
           
           {/* Enhanced name animation */}
-          <div className="font-heading font-black text-6xl lg:text-8xl xl:text-9xl leading-[0.9] mb-8">
+          <div className="font-heading font-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl leading-[0.9] mb-6 sm:mb-8">
             <motion.div 
               className="text-text-primary mb-4 overflow-hidden"
               initial={{ y: 100, opacity: 0 }}
@@ -82,7 +82,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.4 }}
-          className="flex items-center space-x-6 mt-16"
+          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mt-12 sm:mt-16"
         >
           <motion.div 
             className="w-16 h-px bg-accent"

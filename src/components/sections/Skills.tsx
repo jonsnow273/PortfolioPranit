@@ -75,7 +75,7 @@ function MarqueeRow({ skills, direction = 'left' }: { skills: string[]; directio
 
 export default function Skills() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { margin: "-100px" })
 
   const containerVariants = {
     hidden: { opacity: 0 },

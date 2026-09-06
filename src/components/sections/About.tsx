@@ -13,7 +13,7 @@ const stats = [
 function AnimatedCounter({ value, suffix = '', duration = 1500 }: { value: number; suffix?: string; duration?: number }) {
   const [count, setCount] = useState(0)
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { margin: "-100px" })
 
   useEffect(() => {
     if (isInView) {
@@ -44,7 +44,7 @@ function AnimatedCounter({ value, suffix = '', duration = 1500 }: { value: numbe
 
 export default function About() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-100px" })
+  const isInView = useInView(ref, { margin: "-100px" })
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -86,7 +86,7 @@ export default function About() {
         {/* Stats row */}
         <motion.div 
           variants={itemVariants}
-          className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-16"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8 mb-12 sm:mb-16"
         >
           {stats.map((stat, index) => (
             <div key={index} className="text-center lg:text-left">
@@ -104,14 +104,14 @@ export default function About() {
         </motion.div>
 
         {/* Main content - two column layout */}
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
           {/* Left column - Main text */}
           <motion.div variants={itemVariants} className="space-y-6">
             <div className="space-y-4">
-              <h2 className="font-heading font-bold text-3xl lg:text-4xl text-text-primary leading-tight">
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-text-primary leading-tight">
                 Building AI systems that actually work,
               </h2>
-              <h2 className="font-heading font-bold text-3xl lg:text-4xl text-text-secondary leading-tight">
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-text-secondary leading-tight">
                 not just tutorials that run once.
               </h2>
             </div>
