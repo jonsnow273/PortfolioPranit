@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting to Portfolio...</title>
+    <style>
+        body {
+            background: #0d0e12;
+            color: #e8e8ea;
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .loader {
+            text-align: center;
+        }
+        .spinner {
+            border: 3px solid #2a2d3a;
+            border-top: 3px solid #6b8cb8;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        // Redirect to the Next.js app (assuming it runs on port 3000 in development)
+        setTimeout(() => {
+            if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+                window.location.href = 'http://localhost:3000';
+            } else {
+                // In production, the Next.js app will be served from the same domain
+                window.location.reload();
+            }
+        }, 2000);
+    </script>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <p>Loading Pranit's Portfolio...</p>
+        <p style="font-size: 14px; color: #8a8d94; margin-top: 10px;">
+            Please run <code style="background: #151619; padding: 2px 6px; border-radius: 4px;">npm run dev</code> to start the Next.js development server.
+        </p>
+    </div>
+</body>
+</html>
