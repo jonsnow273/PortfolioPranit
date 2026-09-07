@@ -8,33 +8,21 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        // Light theme - Cream & beige
-        'light-bg': '#f5f1ed',
-        'light-card': '#fffbf7',
-        'light-border': '#e8dfd6',
-        // Dark theme - Deep navy/charcoal
-        'dark-bg': '#0f1419',
-        'dark-card': '#1a1f2e',
-        'dark-border': '#2d3748',
-        // Dynamic colors using CSS variables
-        'accent': 'var(--accent)',
-        'bg-primary': 'var(--bg-primary)',
-        'bg-secondary': 'var(--bg-secondary)',
-        'bg-tertiary': 'var(--bg-tertiary)',
-        'text-primary': 'var(--text-primary)',
-        'text-secondary': 'var(--text-secondary)',
-        'text-muted': 'var(--text-muted)',
-        'accent-secondary': '#d4a574',
-        'accent-tertiary': '#6b5344',
-        'accent-hover': '#a0845a',
+        // Dark theme - proper dark colors
+        'dark-bg': '#0a0a0a',        // Very dark background
+        'dark-card': '#1a1a1a',     // Dark card background
+        'dark-border': '#2a2a2a',   // Dark borders
+        'accent': '#6366f1',        // Bright blue accent
+        'accent-secondary': '#8b5cf6',
+        'accent-tertiary': '#3b82f6', 
+        'accent-hover': '#7c3aed',
+        'text-primary': '#ffffff',     // Pure white text
+        'text-secondary': '#d1d5db',  // Light gray text
+        'text-muted': '#9ca3af',     // Muted gray text
         'cream-light': '#fefbf8',
         'cream-dark': '#ece6e0',
         'tan': '#c9b8a8',
         'taupe': '#9b8b7e',
-        // Dark theme text
-        'dark-text-primary': '#f5f1ed',
-        'dark-text-secondary': '#b8b3ac',
-        'dark-text-muted': '#8a827a',
       },
       fontFamily: {
         'heading': ['Inter', 'Space Grotesk', 'sans-serif'],

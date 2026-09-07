@@ -1,7 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Sun, Moon } from 'lucide-react'
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -15,28 +14,6 @@ const navItems = [
 export default function Navigation() {
   const [activeSection, setActiveSection] = useState('home')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [theme, setTheme] = useState<'light' | 'dark'>('light')
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light')
-    setTheme(initialTheme)
-  }, [])
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    const root = document.documentElement
-    if (newTheme === 'dark') {
-      root.classList.add('dark')
-    } else {
-      root.classList.remove('dark')
-    }
-    localStorage.setItem('theme', newTheme)
-  }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -118,23 +95,6 @@ export default function Navigation() {
               )}
             </li>
           ))}
-          
-          {/* Theme toggle */}
-          <li className="ml-2 pl-2 nav-divider border-l flex items-center">
-            <motion.button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg bg-accent/10 hover:bg-accent/20 transition-colors text-accent"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              title={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-            >
-              {theme === 'light' ? (
-                <Moon size={18} />
-              ) : (
-                <Sun size={18} />
-              )}
-            </motion.button>
-          </li>
         </ul>
       </motion.div>
 
@@ -200,22 +160,6 @@ export default function Navigation() {
                 </motion.button>
               </li>
             ))}
-            
-            {/* Mobile theme toggle */}
-            <li className="mt-4 pt-4 border-t border-dark-border">
-              <motion.button
-                onClick={toggleTheme}
-                className="w-full flex items-center justify-between p-3 rounded-lg bg-accent/10 hover:bg-accent/20 transition-colors text-accent font-medium"
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>{theme === 'light' ? 'Dark Mode' : 'Light Mode'}</span>
-                {theme === 'light' ? (
-                  <Moon size={18} />
-                ) : (
-                  <Sun size={18} />
-                )}
-              </motion.button>
-            </li>
           </ul>
         </motion.div>
       </motion.div>
